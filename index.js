@@ -12,7 +12,13 @@
  * sumDouble(5, 5); // 20
  */
 export function sumDouble(num1, num2) {
-  /* TODO */
+  let result = num1 + num2;
+
+  if (num1 == num2) {
+    result *= 2;
+  }
+
+  return result;
 }
 
 /**
@@ -28,7 +34,11 @@ export function sumDouble(num1, num2) {
  * makes10(4, 4); // false
  */
 export function makes10(num1, num2) {
-  /* TODO */
+  const num1IsTen = num1 === 10;
+  const num2IsTen = num2 === 10;
+  const sumIsTen = num1 + num2 === 10;
+
+  return num1IsTen || num2IsTen || sumIsTen;
 }
 
 /**
@@ -46,7 +56,9 @@ export function makes10(num1, num2) {
  * near100(105, 10); // true
  */
 export function near100(n, distance) {
-  /* TODO */
+  const diff = Math.abs(100 - n); //distance between n and 100
+
+  return diff <= distance;
 }
 
 /**
@@ -63,7 +75,10 @@ export function near100(n, distance) {
  * isMultiple35(7); // false
  */
 export function isMultiple35(n) {
-  /* TODO */
+  const divisBy3 = n % 3 === 0;
+  const divisBy5 = n % 5 === 0;
+
+  return divisBy3 || divisBy5;
 }
 
 /**
@@ -81,7 +96,10 @@ export function isMultiple35(n) {
  * shareLastDigit(10, 21); // false
  */
 export function shareLastDigit(num1, num2) {
-  /* TODO */
+  const lastDigit1 = num1 % 10;
+  const lastDigit2 = num2 % 10;
+
+  return lastDigit1 === lastDigit2;
 }
 
 /**
@@ -98,7 +116,15 @@ export function shareLastDigit(num1, num2) {
  * isColdAndHot(10, 50); // false
  */
 export function isColdAndHot(temp1, temp2) {
-  /* TODO */
+  const temp1LessThanZero = temp1 < 0;
+  const temp2LessThanZero = temp2 < 0;
+  const temp1greaterThan100 = temp1 > 100;
+  const temp2greaterThan100 = temp2 > 100;
+
+  const oneLessTwoGreater = temp1LessThanZero && temp2greaterThan100;
+  const twoLessOneGreater = temp2LessThanZero && temp1greaterThan100;
+
+  return oneLessTwoGreater || twoLessOneGreater;
 }
 
 /**
@@ -114,7 +140,7 @@ export function isColdAndHot(temp1, temp2) {
  * makeABBA("a", "b"); // "abba"
  */
 export function makeABBA(A, B) {
-  /* TODO */
+  return A + B + B + A;
 }
 
 /**
@@ -135,7 +161,18 @@ export function makeABBA(A, B) {
  * makeSLS("a", "abc"); // "aabca"
  */
 export function makeSLS(str1, str2) {
-  /* TODO */
+  let short; //shorter string
+  let long; //longer string
+
+  if (str1.length < str2.length) {
+    short = str1;
+    long = str2;
+  } else {
+    short = str2;
+    long = str1;
+  }
+
+  return short + long + short;
 }
 
 /**
@@ -156,7 +193,16 @@ export function makeSLS(str1, str2) {
  * canEnterClub(5, 5); // 1
  */
 export function canEnterClub(you, date) {
-  /* TODO */
+  let minStyle = 2; //point at which definite no
+  let maxStyle = 8; //point at which definite yes
+
+  if (you <= minStyle || date <= minStyle) {
+    return 0; //no
+  } else if (you >= maxStyle || date >= maxStyle) {
+    return 2; //yes
+  } else {
+    return 1; //maybe
+  }
 }
 
 /**
@@ -177,5 +223,14 @@ export function canEnterClub(you, date) {
  * shouldAnswerPhone(true, true, false); // true
  */
 export function shouldAnswerPhone(isMorning, isBoss, isAsleep) {
-  /* TODO */
+  if (isAsleep) {
+    //can't answer, won't answer
+    return false;
+  } else if (isMorning) {
+    //only if I have to (i.e if boss is calling)
+    return isBoss;
+  } else {
+    //I have to, but I dont want to
+    return true;
+  }
 }

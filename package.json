@@ -1,6 +1,7 @@
 {
   "name": "tdd-intro",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "vitest"
   },
