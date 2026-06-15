@@ -1,3 +1,9 @@
+## important links:
+
+[source repo](https://github.com/FullstackAcademy/tdd-intro.git)
+
+---
+
 # TDD Intro
 
 This is the first of many TDD activities! This style of problem set will
